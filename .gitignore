@@ -30,6 +30,8 @@ backend/.nyc_output
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 backend/build/Release
 
+angular1/public
+
 # Dependency directories
 backend/node_modules/
 backend/jspm_packages/
