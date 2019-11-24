@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "loader.js",
   "scripts": {
-    "dev": "nodemon loader",
+    "dev": "nodemon",
     "production": "pm2 start loader.js --name backend"
   },
   "author": "Rodrigo Rocha",
