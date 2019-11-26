@@ -1,4 +1,5 @@
-angular.module('meanControleFinanceiro').component('valueBox', {
+(function() {
+  angular.module('meanControleFinanceiro').component('valueBox', {
     bindings: {
       grid: '@',
       colorClass: '@',
@@ -25,4 +26,5 @@ angular.module('meanControleFinanceiro').component('valueBox', {
         </div>
       </div>
     `
-  });
+  })
+})()

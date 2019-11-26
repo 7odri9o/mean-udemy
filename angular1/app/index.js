@@ -1,5 +1,7 @@
-angular.module('meanControleFinanceiro', [
-    'ui.router',
-    'ngAnimate',
-    'toastr'
-])
+(function() {
+    angular.module('meanControleFinanceiro', [
+        'ui.router',
+        'ngAnimate',
+        'toastr'
+    ])
+})()

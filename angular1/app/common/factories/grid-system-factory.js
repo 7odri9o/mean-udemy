@@ -1,4 +1,5 @@
-angular.module('meanControleFinanceiro').factory('gridSystem', [ function() {
+(function() {
+    angular.module('meanControleFinanceiro').factory('gridSystem', [ function() {
         function toCssClasses(numbers) {
             const cols = numbers ? numbers.split(' ') : []
             let classes = ''
@@ -11,6 +12,7 @@ angular.module('meanControleFinanceiro').factory('gridSystem', [ function() {
             return classes
         }
 
-        return { toCssClasses }
-    }
-])
+            return { toCssClasses }
+        }
+    ])
+})()
