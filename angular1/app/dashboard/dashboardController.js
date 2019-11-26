@@ -1,0 +1,21 @@
+(function () {
+    angular.module('meanControleFinanceiro').controller('DashboardCtrl', [
+        '$http',
+        DashboardController
+    ])
+    
+    function DashboardController($http) {
+        const vm = this
+        vm.getSummary = function() {
+            const url = 'http://192.168.56.102:3003/api/billingSummary'
+            $http.get(url).then(function(response) {
+                const { credit = 0, debt = 0 } = response.data
+                vm.credit = credit
+                vm.debt = debt
+                vm.total = credit - debt
+            })
+        }
+    
+        vm.getSummary()
+    }
+})()
