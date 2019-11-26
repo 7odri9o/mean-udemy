@@ -3,6 +3,8 @@ backend/logs
 backend/*.log
 backend/npm-debug.log*
 
+backend/.vscode/launch.json
+
 angular1/logs
 angular1/*.log
 angular1/npm-debug.log*
