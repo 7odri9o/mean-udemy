@@ -7,12 +7,22 @@
 
     function BillingCycleController($http, msgs) {
         const vm = this
-        vm.create = function () {
-            const url = 'http://192.168.56.102:3003/api/billingCycles'
-            $http.post(url, vm.billingCycle).then(function(response) {
+        const url = 'http://192.168.56.102:3003/api/billingCycles'
+
+        vm.refresh = function() {
+            $http.get(url).then(function(response) {
                 vm.billingCycle = {}
+                vm.billingCycles = response
+            })
+        }
+
+        vm.create = function () {
+            $http.post(url, vm.billingCycle).then(function(response) {
+                vm.refresh()
                 msgs.addSuccess('Operação realizada com sucesso!')
             }).catch(response => msgs.addError(response.data.errors))
         }
+
+        vm.refresh()
     }
 })()
