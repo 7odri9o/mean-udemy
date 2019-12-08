@@ -12,8 +12,8 @@
         vm.refresh = function() {
             $http.get(url).then(function(response) {
                 vm.billingCycle = {}
-                vm.billingCycles = response
-            })
+                vm.billingCycles = response.data
+            }).catch(response => msgs.addError(response.data.errors))
         }
 
         vm.create = function () {
