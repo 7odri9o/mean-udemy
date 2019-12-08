@@ -6,6 +6,7 @@ angular.module('meanControleFinanceiro').component('field', {
         placeholder: '@',
         type: '@',
         model: '=',
+        readonly: '<'
     },
     controller: [
         'gridSystem',
@@ -18,7 +19,7 @@ angular.module('meanControleFinanceiro').component('field', {
             <div class="form-group">
                 <label for="{{ $ctrl.id}}">{{ $ctrl.label }}</label>
                 <input id="{{ $ctrl.id}}" class="form-control" placeholder="{{ $ctrl.placeholder }}" 
-                    ng-model="$ctrl.model" type="{{ $ctrl.type}}" />
+                    ng-model="$ctrl.model" type="{{ $ctrl.type}}" ng-readonly="$ctrl.readonly" />
             </div>
         </div>
     `
