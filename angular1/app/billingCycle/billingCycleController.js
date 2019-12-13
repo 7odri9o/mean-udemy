@@ -12,7 +12,7 @@ function BillingCycleController($http, msgs, tabs) {
 
     vm.refresh = function() {
         $http.get(url).then(response => {
-            vm.billingCycle = {}
+            vm.billingCycle = { credits: [{}], debts: [{}] }
             vm.billingCycles = response.data
             tabs.show(vm, { tabList: true, tabCreate: true })
         }).catch(response => msgs.addError(response.data.errors))
