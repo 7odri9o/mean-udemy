@@ -1,21 +1,26 @@
 angular.module('meanControleFinanceiro').controller('BillingCycleCtrl', [
     '$http',
+    '$location',
     'msgs',
     'tabs',
     BillingCycleController
 ])
 
-function BillingCycleController($http, msgs, tabs) {
+function BillingCycleController($http, $location, msgs, tabs) {
     const vm = this
     const url = 'http://localhost:3003/api/billingCycles'
     console.log('Criou BillingCycleController')
 
     vm.refresh = function() {
-        $http.get(url).then(response => {
+        const page = parseInt($location.search().page) || 1
+        $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then(response => {
             vm.billingCycle = { credits: [{}], debts: [{}] }
             vm.billingCycles = response.data
             vm.calculateValues()
             tabs.show(vm, { tabList: true, tabCreate: true })
+            $http.get(`${url}/count`).then(response => {
+                vm.pages = Math.ceil(response.value / 10)
+            })
         }).catch(response => msgs.addError(response.data.errors))
     }
 
