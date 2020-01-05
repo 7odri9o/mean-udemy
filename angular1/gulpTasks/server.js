@@ -14,6 +14,6 @@ gulp.task('server', ['watch'], () => {
         livereload: true,
         port: 3000,
         open: true,
-        host: '192.168.56.102'
+        host: 'localhost'
     }))
 })
